@@ -1,0 +1,30 @@
+{
+  "name": "mcm-managements",
+  "version": "1.0.0",
+  "description": "> Mobile-first web app for managing MCM biryani franchise operations — production logging, material tracking, and franchise oversight.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ilabs4u/MCM-Management.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ilabs4u/MCM-Management/issues"
+  },
+  "homepage": "https://github.com/ilabs4u/MCM-Management#readme",
+  "dependencies": {
+    "@supabase/ssr": "^0.12.3",
+    "@supabase/supabase-js": "^2.110.7",
+    "next": "^16.2.10",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
+  }
+}

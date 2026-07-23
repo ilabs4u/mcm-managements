@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Core Colors */
+  --bg-base: #030303;
+  --bg-surface: rgba(25, 25, 25, 0.6);
+  --bg-surface-elevated: rgba(40, 40, 40, 0.8);
+  
+  --brand-primary: #FF6B00;
+  --brand-primary-hover: #FF8533;
+  --brand-primary-glow: rgba(255, 107, 0, 0.4);
+  
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #475569;
+  
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.15);
+  
+  --status-success: #10b981;
+  --status-warning: #f59e0b;
+  --status-error: #ef4444;
+
+  /* Spacing */
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  
+  /* Radii */
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+  
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden; /* Prevent body scroll */
+}
+
+body {
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input {
+  font-family: inherit;
+}
+
+/* Utilities */
+.glass-panel {
+  background: rgba(30, 30, 30, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  transition: all var(--transition-normal);
+}
+
+.glass-panel:hover {
+  background: rgba(40, 40, 40, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #f97316 0%, #facc15 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.animate-fade-in {
+  animation: fadeIn var(--transition-normal) forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp var(--transition-normal) forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Base Layout Container */
+.page-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+  background-color: var(--bg-base);
+  overflow: hidden;
+}
+
+/* Ambient mesh background effect */
+.page-container::before,
+.page-container::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.15;
+  animation: float 20s infinite ease-in-out alternate;
+}
+
+.page-container::before {
+  top: -10%;
+  left: -10%;
+  width: 40vw;
+  height: 40vw;
+  background: var(--brand-primary);
+}
+
+.page-container::after {
+  bottom: -10%;
+  right: -10%;
+  width: 50vw;
+  height: 50vw;
+  background: #facc15;
+  animation-delay: -10s;
+}
+
+@keyframes float {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(10%, 20%) scale(1.2); }
+}
+
+/* Responsive Desktop Layout */
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.app-sidebar {
+  position: fixed;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  height: 64px;
+  background-color: rgba(20, 20, 20, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 50;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.app-main-content {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 96px; /* Space for floating bottom nav */
+}
+
+@media (min-width: 768px) {
+  .app-layout {
+    flex-direction: row;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .app-sidebar {
+    position: static;
+    width: 260px;
+    height: 100%;
+    border: none;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 0;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    padding: var(--spacing-6);
+    gap: var(--spacing-2);
+    background-color: rgba(10, 10, 10, 0.4);
+    box-shadow: none;
+  }
+  
+  .app-main-content {
+    padding-bottom: 0;
+    height: 100%;
+  }
+}

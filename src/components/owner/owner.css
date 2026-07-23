@@ -1,0 +1,359 @@
+/* Owner component styles — BEM naming: .franchise-card, .approval-card, .aggregate-bar */
+
+/* Franchise Summary Card */
+.franchise-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-4) var(--spacing-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  transition: all var(--transition-normal);
+}
+
+.franchise-card:hover {
+  border-color: rgba(249, 115, 22, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.franchise-card--closed {
+  opacity: 0.65;
+}
+
+.franchise-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.franchise-card__name-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.franchise-card__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.franchise-card__dot--open {
+  background: var(--status-success);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.franchise-card__dot--closed {
+  background: var(--text-muted);
+}
+
+.franchise-card__name {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.franchise-card__manager {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+}
+
+.franchise-card__products {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  padding-top: var(--spacing-2);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.franchise-card__product-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+}
+
+.franchise-card__product-name {
+  color: var(--text-secondary);
+}
+
+.franchise-card__product-amount {
+  font-weight: 600;
+}
+
+.franchise-card__no-data {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.franchise-card__materials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+}
+
+.franchise-card__material-chip {
+  font-size: 0.75rem;
+  color: var(--brand-primary);
+  background: rgba(249, 115, 22, 0.08);
+  border: 1px solid rgba(249, 115, 22, 0.2);
+  border-radius: var(--radius-full);
+  padding: 0.15rem 0.5rem;
+}
+
+/* Today Aggregate Bar */
+.aggregate-bar {
+  background: linear-gradient(135deg, var(--bg-surface-elevated), var(--bg-surface));
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.aggregate-bar__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.aggregate-bar__title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.75rem;
+}
+
+.aggregate-bar__counts {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-6);
+}
+
+.aggregate-bar__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.aggregate-bar__stat-value {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.aggregate-bar__stat-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.aggregate-bar__divider {
+  width: 1px;
+  height: 40px;
+  background: var(--border-subtle);
+}
+
+.aggregate-bar__products {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  padding-top: var(--spacing-3);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.aggregate-bar__product {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.aggregate-bar__product-name {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+}
+
+.aggregate-bar__product-value {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.aggregate-bar__materials {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: var(--spacing-3);
+}
+
+.aggregate-bar__material {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.aggregate-bar__material-name {
+  font-size: 0.6875rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.aggregate-bar__material-value {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--brand-primary);
+}
+
+/* Approval Card */
+.approval-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+.approval-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--spacing-3);
+}
+
+.approval-card__name {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.approval-card__location {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  margin-top: 0.25rem;
+}
+
+.approval-card__manager {
+  display: flex;
+  gap: var(--spacing-2);
+  font-size: 0.875rem;
+}
+
+.approval-card__manager-label {
+  color: var(--text-secondary);
+}
+
+.approval-card__manager-name {
+  font-weight: 500;
+}
+
+.approval-card__email {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.approval-card__actions {
+  display: flex;
+  gap: var(--spacing-3);
+  margin-top: var(--spacing-2);
+}
+
+/* Recipe Management */
+.product-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  transition: border-color var(--transition-normal);
+}
+
+.product-card--expanded {
+  border-color: rgba(249, 115, 22, 0.4);
+}
+
+.product-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-4) var(--spacing-6);
+  cursor: pointer;
+  user-select: none;
+}
+
+.product-card__header:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.product-card__title {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.product-card__meta {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  margin-top: 0.125rem;
+}
+
+.product-card__toggle {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  transition: transform var(--transition-fast);
+}
+
+.product-card__toggle--open {
+  transform: rotate(180deg);
+}
+
+.product-card__body {
+  padding: var(--spacing-4) var(--spacing-6) var(--spacing-6);
+  border-top: 1px solid var(--border-subtle);
+}
+
+/* Recipe Editor */
+.recipe-editor__row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: var(--spacing-3);
+  align-items: center;
+  padding: var(--spacing-3) 0;
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: 0.9375rem;
+}
+
+.recipe-editor__row:last-child {
+  border-bottom: none;
+}
+
+.recipe-editor__ingredient-name {
+  font-weight: 500;
+}
+
+.recipe-editor__qty-input {
+  width: 80px;
+  padding: var(--spacing-2) var(--spacing-3);
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  font-family: inherit;
+  text-align: right;
+}
+
+.recipe-editor__qty-input:focus {
+  outline: none;
+  border-color: var(--brand-primary);
+}
+
+.recipe-editor__unit {
+  width: 60px;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
